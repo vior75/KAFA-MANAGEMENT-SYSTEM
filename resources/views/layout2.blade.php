@@ -120,7 +120,7 @@
        
         
         <div class="sidebar-menu">
-            <a href="{{ url('/home') }}">Home</a>
+            <a href="{{ url('/Ubulletinboard') }}">Home</a>
             <a href="#" data-toggle="collapse" data-target="#bulletinSubmenu" aria-expanded="false" class="has-submenu">Bulletin</a>
             <div class="collapse submenu" id="bulletinSubmenu">
                 <a href="{{ url('/bulletins') }}" class="pl-4">Manage Bulletins</a>
@@ -137,8 +137,8 @@
         <div class="profile-box">
             <img src="{{ asset('storage/media/profile.jpg') }}" alt="Profile Picture">
             <div class="user-info">
-                <strong>John Doe</strong>
-                <span>Admin</span>
+                <strong>ADAM</strong>
+                <span>PARENT</span>
             </div>
         </div>
         <div class="row justify-content-start">
