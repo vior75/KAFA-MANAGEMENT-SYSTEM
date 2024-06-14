@@ -14,7 +14,7 @@
         }
         .sidebar {
             width: 250px;
-            background-color: #995f29;
+            background-color: #556AB5;
             color: white;
             padding-top: 20px;
             flex-shrink: 0;
@@ -39,7 +39,7 @@
         }
         .sidebar a:hover {
             background-color: #ffffff;
-            color: #995f29;
+            color: #886de9;
         }
         .content {
             flex-grow: 1;
@@ -151,9 +151,7 @@
             </div>
         </div>
         <div class="bulletin-container">
-            <div class="bulletin-card">
-                @yield('content')
-            </div>
+            @yield('content')
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

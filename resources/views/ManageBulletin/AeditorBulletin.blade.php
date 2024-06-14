@@ -20,7 +20,7 @@
         </div>
         <div class="mb-3">
             <label for="media" class="form-label">Media</label>
-            <input type="file" class="form-control" id="media" name="media" accept="image/*,video/*">
+            <input type="file" class="form-control" id="media" name="media" accept="image/,video/">
             @if ($bulletin->media_path)
                 <small>Current media: <a href="{{ Storage::url($bulletin->media_path) }}" target="_blank">View</a></small>
             @endif

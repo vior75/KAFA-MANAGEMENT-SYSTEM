@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('author');
-            $table->string('media_path')->nullable(); // Add this line
+            $table->string('media_path')->nullable();
             $table->timestamps();
         });
     }
@@ -23,5 +23,3 @@ return new class extends Migration
         Schema::dropIfExists('bulletins');
     }
 };
-
-

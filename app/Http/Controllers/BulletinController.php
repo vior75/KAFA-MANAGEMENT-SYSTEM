@@ -1,23 +1,22 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
-use App\Models\Bulletin;
+use App\Models\BulletinModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class BulletinController extends Controller
+class Bulletincontroller extends Controller
 {
     public function index()
     {
-        $bulletins = Bulletin::all();
-        return view('bulletins.index', compact('bulletins'));
+        $bulletins = BulletinModel::all();
+        return view('ManageBulletin.Abulletinboard', compact('bulletins'));
     }
 
     public function create()
     {
-        return view('bulletins.create');
+        return view('ManageBulletin.AnewBulletin');
     }
 
     public function store(Request $request)
@@ -34,7 +33,7 @@ class BulletinController extends Controller
             $mediaPath = $request->file('media')->store('public/media');
         }
 
-        Bulletin::create([
+        BulletinModel::create([
             'title' => $request->title,
             'content' => $request->content,
             'author' => $request->author,
@@ -44,12 +43,12 @@ class BulletinController extends Controller
         return redirect()->route('bulletins.index')->with('success', 'Bulletin created successfully.');
     }
 
-    public function edit(Bulletin $bulletin)
+    public function edit(BulletinModel $bulletin)
     {
-        return view('bulletins.edit', compact('bulletin'));
+        return view('ManageBulletin.AeditorBulletin', compact('bulletin'));
     }
 
-    public function update(Request $request, Bulletin $bulletin)
+    public function update(Request $request, BulletinModel $bulletin)
     {
         $request->validate([
             'title' => 'required',
@@ -76,7 +75,7 @@ class BulletinController extends Controller
         return redirect()->route('bulletins.index')->with('success', 'Bulletin updated successfully.');
     }
 
-    public function destroy(Bulletin $bulletin)
+    public function destroy(BulletinModel $bulletin)
     {
         if ($bulletin->media_path) {
             Storage::delete($bulletin->media_path);
@@ -85,6 +84,9 @@ class BulletinController extends Controller
 
         return redirect()->route('bulletins.index')->with('success', 'Bulletin deleted successfully.');
     }
+
+    public function show(BulletinModel $bulletin)
+    {
+        return view('ManageBulletin.AviewerBulletin', compact('bulletin'));
+    }
 }
-
-
